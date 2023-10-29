@@ -1,6 +1,7 @@
 import Modal from 'react-bootstrap/Modal';
 import {useState } from 'react';
-import axios from '../api/axios';
+import axios from '../../api/axios';
+import './style.css'
 const LOGIN_URL='/users/login';
 function SignInModal(props) {
     const [username, setUsername] = useState('');

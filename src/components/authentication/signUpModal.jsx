@@ -1,5 +1,6 @@
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
+import './style.css'
 
 function SignUpModal(props) {
   const [username, setUsername] = useState('');
@@ -58,7 +59,7 @@ function SignUpModal(props) {
         {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(registerInfoInfo)
+          body: JSON.stringify(registerInfo)
         }).then(() => {
           console.log("registration successful");
           navigate('/homeAfterLogin');

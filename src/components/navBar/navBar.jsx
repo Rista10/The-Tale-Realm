@@ -1,11 +1,11 @@
 import Container from 'react-bootstrap/Container';
-import SignInModal from './signInModal';
+import SignInModal from '../authentication/signInModal';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import Logo from '../assets/images/logo.png';
+import Logo from '../../assets/images/logo.png';
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
-import SignUpModal from './signUpModal';
+import SignUpModal from '../authentication/signUpModal';
 
 function NavBar() {
    const [showLogin, setShowLogin] = useState(false); 
