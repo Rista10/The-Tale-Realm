@@ -1,0 +1,29 @@
+main .container {
+    max-width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .mainContent {
+    width: 75%;
+    padding-right: 2rem;
+  }
+  .sideContent {
+    padding-left: 1rem;
+    width: 30%;
+  }
+
+  @media screen and (max-width: 768px) {
+    main .container {
+      flex-direction: column;
+    }
+    .mainContent {
+      width: 100%;
+    }
+    .sideContent {
+        margin-top: 20px;
+        padding: 0px;
+      width: 100%;
+    }
+  }

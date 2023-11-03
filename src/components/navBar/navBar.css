@@ -1,0 +1,54 @@
+.button-style
+  {
+    margin-right: 10px;
+    margin-left: 3px;
+    background-color: white;
+    color: black;
+    padding:0 13px 0 13px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .button-style-register{
+    margin-right: 10px;
+    margin-left: 3px;
+    background-color: black;
+    color: white;
+    padding:0 13px 0 13px;
+    border: 1px white solid;
+    border-radius: 5px;
+  }
+
+  .button-style-register:hover{
+    background-color: white;
+    color: black;
+  }
+  
+  .button-style:hover
+  {
+    margin-right: 10px;
+    background-color: black;
+    color: white;
+    padding:0 13px 0 13px;
+    border: 1px white solid;
+    border-radius: 5px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .button-style
+    {
+      margin-bottom: 10px;
+      margin-left: 0px;
+      height: 40px;
+      width: 80px;
+    }
+
+    .button-style-register{
+      margin-left: 0px;
+      height: 40px;
+      width: 80px;
+    }
+
+  }
+  
+  

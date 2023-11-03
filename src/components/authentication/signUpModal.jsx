@@ -1,6 +1,8 @@
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import './style.css'
+import axios from '../../api/axios';
+import { useNavigate } from 'react-router-dom';
 
 function SignUpModal(props) {
   const [username, setUsername] = useState('');
@@ -8,7 +10,8 @@ function SignUpModal(props) {
   const [email, setEmail] = useState("");
   const [passwordError, setpasswordError] = useState("");
   const [emailError, setemailError] = useState("");
-
+  const REGISTER_URL = "/users/register"
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -24,6 +27,9 @@ function SignUpModal(props) {
   };
 
 
+  const handleCloseModal = () => {
+    props.onHide();
+  };
   const handleValidation = () => {
     let formIsValid = true;
 
@@ -51,20 +57,17 @@ function SignUpModal(props) {
   };
 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (handleValidation()) {
-      const registerInfo = { userName, email, password }
-      fetch('http://localhost:5000/users/register',
-        {
-          method: 'POST',
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(registerInfo)
-        }).then(() => {
-          console.log("registration successful");
-          navigate('/homeAfterLogin');
-        })
-
+    try {
+      const response = await axios.post(REGISTER_URL,
+        { username, email, password });
+      console.log("signIn success");
+      console.log(response);
+      await handleCloseModal();
+      navigate('/home');
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -93,7 +96,7 @@ function SignUpModal(props) {
           </label>
           <input type="password" id="password" value={password} onChange={handlePasswordChange} required />
 
-          <input type="submit" value="Register" />
+          <input type="submit" value="Register" onSubmit={handleSubmit} />
         </form>
         <div className="sign-up">
           <p>

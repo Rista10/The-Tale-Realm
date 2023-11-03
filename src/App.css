@@ -1,0 +1,43 @@
+.category {
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffff;
+    padding: 5px 10px;
+    letter-spacing: 2px;
+}
+
+.category1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 5px solid #fb4c35;
+    width: auto;
+    display: block;
+    background: linear-gradient(to right, #fb4c35 50%, black 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+}
+
+h4{
+    padding-top: 30px;
+}
+
+.category1 span {
+    color: #fff;
+    letter-spacing: 1;
+}
+
+.category1:hover {
+    background-position: left bottom;
+}
+
+.category1 span:hover {
+    color: #fff;
+}
+
+.shawdow
+{
+    box-shadow: none;
+}

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;500;600;700;900&display=swap');
+
+.home-content {
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+}
+
+.backgroundImage {
+    margin: 15px;
+    z-index: 0;
+    position: absolute;
+    height: 83vh;
+    max-width: 90%;
+    border-radius: 50px;
+}
+
+
+.home-description {
+    z-index: 1;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-description h1 {
+    font-family: 'Times-New-Roman';
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.home-description p {
+    font-family: 'Times-New-Roman';
+    font-size: 1.1rem;
+    text-align: justify;
+    padding: 15px;
+}
+
+.home-description button {
+    font-family: 'Times-New-Roman';
+    width: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    color: white;
+    background-color: #6941C6;
+    border: none;
+}
+
+
+.read-write-connect {
+    margin: 2% 7%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.read,
+.write,
+.connect
+{
+    padding: 0 25px;
+    text-align: justify;
+    flex: 1;
+}
+
+.icon-rwc
+{
+   padding-right: 10px;
+}
+.read-write-connect-h3{
+    font-size: 2.1rem;
+    font-weight: bold;
+    color: rgb(82, 0, 114);
+}
+
+.read h6{
+    color: #6941C6;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.write h6{
+    color: rgb(255, 90, 90);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.connect h6{
+    color: rgb(200, 1, 1);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.read-write-connect p{
+    font-size: 0.9rem;
+    padding: 5px 35px 0px 0px;
+}
+

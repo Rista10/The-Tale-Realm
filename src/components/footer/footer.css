@@ -28,10 +28,16 @@ footer {
 }
 
 footer h3 {
+    font-size: 1.4rem;
     color: rgb(207, 207, 207);
 }
 
-footer p , a{
+footer p {
+    color: rgb(231, 230, 230);
+}
+
+footer  a{
+    font-size: 0.9rem;
     color: rgb(231, 230, 230);
 }
 footer a{

@@ -5,17 +5,28 @@ import PopularStories from '../../components/popularStories/poPularStories'
 import FeaturedStories from '../../components/featuredStories/featuredStories'
 import TrendingStories from '../../components/trendingStories/trendingStories'
 import Side from '../../components/side/side'
-import ProfileCard from '../../components/profileCard/profileCard'
+import './discover.css'
 
-const HomeAfterLogin = () => {
+const Discover = () => {
   return (
     <div>
       <NavBar/>
-      <ProfileCard/>
-      
-
+      <main>
+      <div className='container'>
+          <section className='mainContent'>
+            <h2>Discover Stories</h2>
+            <PopularStories/>
+            <FeaturedStories/>
+            <TrendingStories/>
+          </section>
+          <section className='sideContent'>
+        <Side/>
+          </section>
+        </div>
+      </main>
+      <Footer/>
     </div>
   )
 }
 
-export default HomeAfterLogin
+export default Discover
