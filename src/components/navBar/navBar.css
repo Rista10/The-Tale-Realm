@@ -7,6 +7,8 @@
     padding:0 13px 0 13px;
     border: none;
     border-radius: 5px;
+    width: 80px;
+    height: 40px;
   }
 
   .button-style-register{
@@ -17,6 +19,8 @@
     padding:0 13px 0 13px;
     border: 1px white solid;
     border-radius: 5px;
+    width: 80px;
+    height: 40px;
   }
 
   .button-style-register:hover{
@@ -39,14 +43,10 @@
     {
       margin-bottom: 10px;
       margin-left: 0px;
-      height: 40px;
-      width: 80px;
     }
 
     .button-style-register{
       margin-left: 0px;
-      height: 40px;
-      width: 80px;
     }
 
   }

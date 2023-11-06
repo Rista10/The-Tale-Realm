@@ -3,7 +3,8 @@ import { useContext, useState } from 'react';
 import axios from '../../api/axios';
 import './style.css'
 import { useNavigate } from 'react-router-dom';
-import AuthContext from '../../context/authProvider';
+import { useAuthContext } from '../../hooks/useAuthContext';
+
 const LOGIN_URL = '/users/login';
 
 function SignInModal(props) {
@@ -12,7 +13,7 @@ function SignInModal(props) {
   const [password, setPassword] = useState('');
   const [rememberPassword, setRememberPassword] = useState(false);
   const [error, setError] = useState('');
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth } = useAuthContext()
   
 
   const handleUsernameChange = (e) => {
@@ -35,14 +36,21 @@ function SignInModal(props) {
     try {
       const response = await axios.post(LOGIN_URL,
         { username, password });
-      console.log("login success");
-      console.log(response.data["userId"]);
-      console.log(response.status)
+
+      const data=response.data;
+
       const token = response.data["token"];
       const userId = response.data["userId"];
-      await setAuth({ token, userId })
+
+      localStorage.setItem('token',token);
+      localStorage.setItem('userId',userId);
+
+      await setAuth({ type:'LOGIN',payload:{token:token,userId:userId}})
+
       await handleCloseModal();
-      navigate('/home');
+
+      navigate('/');
+
     } catch (error) {
       if (!error?.response) {
         setError("No server response")
