@@ -101,3 +101,9 @@
     padding: 5px 35px 0px 0px;
 }
 
+@media screen and (max-width:767px){
+    .read-write-connect {
+        flex-direction: column;
+    }
+
+}

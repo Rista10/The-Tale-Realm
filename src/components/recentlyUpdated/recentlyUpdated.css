@@ -1,0 +1,38 @@
+.recently-updated{
+    width: 95%;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 2rem;
+}
+
+.recently-updated .image{
+    max-width:15rem;
+}
+
+.recently-updated img{
+    height: 100%;
+    width: 100%;
+    box-sizing: contain;
+}
+.recently-updated .text{
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+   
+}
+
+.recently-updated .title{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.recently-updated .date{
+    color: green;
+    font-style: italic;
+    font-size: 0.93rem;
+}
+
+.recently-updated .description{
+    text-align: justify;
+    font-size: 0.9rem;
+}

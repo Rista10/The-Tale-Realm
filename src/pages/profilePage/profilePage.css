@@ -1,13 +1,82 @@
-main .profile-container {
-    max-width: 1400px;
-    display: flex;
-    justify-content: space-between;
-    padding-top: 3.2rem;
-    padding-bottom: 3.2rem;
+main .container {
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
 }
-  .profile-left-content {
-    width: 30%;
+
+.profile-left-content {
+  width: 30%;
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-right-content {
+  padding-left: 1rem;
+  width: 70%;
+  margin-top: 3rem;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 1px 1px 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.about-me-container{
+  padding: 20px;
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 1px 1px 10px;
+}
+
+
+.about-text-bold{
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  padding-bottom: 7px;
+  border-bottom: 0.5px solid rgb(209, 209, 209);
+}
+
+.about-text-light
+{
+  padding-top: 6px;
+  font-size: 14px;
+  font-weight: medium;
+}
+
+.recently-updated-title{
+  padding: 15px;
+  padding-top: 20px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-bottom: 0.5px solid rgb(209, 209, 209);
+  align-self: flex-start;
+  width: 100%;
+}
+
+@media screen and (max-width:1024px){
+  main .container {
+    flex-direction: column;
   }
-  .profile-right-content {
-    width: 70%;
+  .profile-left-content{
+    width: 100%;
+    padding-right: 0;
   }
+  .profile-right-content{
+    width: 95%;
+    padding-left: 0;
+    border: none;
+    box-shadow: none;
+    align-self: center;
+  }
+
+  .recently-updated-title{
+    text-align: center;
+  }
+}
