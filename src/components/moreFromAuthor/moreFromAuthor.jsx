@@ -1,12 +1,10 @@
 import React from "react"
-import "./side.css"
-import { useState } from 'react'
+import "./moreFromAuthor.css"
 import { popularStories } from '../../dummyData';
 import SideCard from './card';
 
-const Side = () => {
-    const [comment, setComment] = useState();
-    const catgeory = ["Mystery", "Love", "Thriller", "Drama", "Horror", "Scientific", "Technology"]
+const  MoreFromAuthor= () => {
+    
     return (
         <>
             <div className='sidebar'>
@@ -24,19 +22,10 @@ const Side = () => {
                     </div>
                 </section>
             </div>
-            <section className='catgorys'>
-                <h4>Categories</h4>
-                {catgeory.map((val) => {
-                    return (
-                        <div className='category category1'>
-                            <span>{val}</span>
-                        </div>
-                    )
-                })}
-            </section>
+           
 
         </>
     )
 }
 
-export default Side
+export default MoreFromAuthor

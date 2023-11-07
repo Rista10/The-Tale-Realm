@@ -3,7 +3,7 @@ import SignInModal from '../authentication/signInModal';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from '../../assets/images/logo.png';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import SignUpModal from '../authentication/signUpModal';
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -16,8 +16,8 @@ function NavBar() {
   const { setAuth } = useContext(AuthContext);
   const [showRegister, setShowRegister] = useState(false);
   const { auth } = useAuthContext();
-
-  const {token}=auth;
+  const navigate=useNavigate();
+  const { token } = auth;
 
 
   const handleLogin = () => {
@@ -32,11 +32,12 @@ function NavBar() {
     localStorage.removeItem('token');
     localStorage.removeItem('userId');
 
-    setAuth({ type: 'LOGOUT' })
+    setAuth({ type: 'LOGOUT' });
+    navigate('/');
   }
 
   return (
-    <Navbar expand="lg" bg="dark" data-bs-theme="dark"className='navbar-container'>
+    <Navbar expand="lg" bg="dark" data-bs-theme="dark" className='navbar-container'>
       <Container fluid>
         <Navbar.Brand>
           <img src={Logo} alt="Logo of tale realm" max-width={305} height={100} />
@@ -54,23 +55,23 @@ function NavBar() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              <Nav>
-                <Link to="/" className="text-white nav-link">Home</Link>
-                <Link to="/discover" className="text-white nav-link">Discover</Link>
-                <Link to="/write" className="text-white nav-link">Write</Link>
+              
                 {token && (
-                  <div>
+                  <Nav>
+                    <Link to="/" className="text-white nav-link">Home</Link>
+                    <Link to="/discover" className="text-white nav-link">Discover</Link>
+                    <Link to="/stories/create" className="text-white nav-link">Write</Link>
                     <button className='button-style' onClick={logout}>Logout</button>
-                  </div>
+                  </Nav>
                 )}
                 {!token && (
-                  <div>
+                  <Nav>
                     <button className="button-style " onClick={handleLogin} >Login</button>
                     {showLogin && <SignInModal show={showLogin} onHide={() => setShowLogin(false)} />}
                     <button type="button" className="button-style-register" onClick={handleRegister}>Register</button>
                     {showRegister && <SignUpModal show={showRegister} onHide={() => setShowRegister(false)} />}
-                  </div>)}
-              </Nav>
+                  </Nav>)}
+              
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

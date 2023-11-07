@@ -1,0 +1,10 @@
+.all-user-heading{
+    padding-top: 25px;
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-bottom: 0px;
+    font-weight: 550;
+}
+
+.all-user a{
+    text-decoration: none;
+}

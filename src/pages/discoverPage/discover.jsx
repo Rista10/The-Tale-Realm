@@ -4,8 +4,9 @@ import Footer from '../../components/footer/footer'
 import PopularStories from '../../components/popularStories/poPularStories'
 import FeaturedStories from '../../components/featuredStories/featuredStories'
 import TrendingStories from '../../components/trendingStories/trendingStories'
-import Side from '../../components/side/side'
 import './discover.css'
+import MoreFromAuthor from '../../components/moreFromAuthor/moreFromAuthor'
+import Category from '../../components/category/category'
 
 const Discover = () => {
   return (
@@ -20,7 +21,8 @@ const Discover = () => {
             <TrendingStories/>
           </section>
           <section className='sideContent'>
-        <Side/>
+        <MoreFromAuthor/>
+        <Category/>
           </section>
         </div>
       </main>

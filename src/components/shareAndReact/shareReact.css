@@ -1,0 +1,44 @@
+.share-react{
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 25px;
+    justify-content: space-between;
+}
+
+
+.share,.like,.add{
+    padding-right: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.share p{
+    padding: 0;
+    margin-right: 10px;
+}
+
+.icon{
+    display: flex;
+}
+
+.fa-icon-share{
+    font-size: 27px;
+    margin-right: 6px;
+    color:rgb(0, 0, 70);
+}
+
+.fa-icon-love{
+    margin: 8px 0px 8px 0;
+    font-size: 25px;
+    margin-right: 6px;
+    color: red;
+}
+
+.fa-icon-bookmark{
+    margin: 8px 0px 8px 0;
+    font-size: 25px;
+    margin-right: 6px;
+    color: rgb(0, 0, 70);
+}

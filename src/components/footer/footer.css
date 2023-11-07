@@ -6,6 +6,7 @@ footer {
     align-items: flex-start;
 }
 
+
 .social-media {
     display: flex;
     flex-direction: column;
@@ -49,6 +50,7 @@ footer a{
 .discover,
 .create,
 .for-author {
+    padding-top: 25px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

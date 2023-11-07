@@ -7,13 +7,14 @@ import SignUpModal from '../../components/authentication/signUpModal';
 import { FaBook, FaPen, FaUser } from "react-icons/fa";
 import { useAuthContext } from '../../hooks/useAuthContext';
 import ProfileCard from '../../components/profileCard/profileCard';
+import AllUser from '../../components/allUser/allUser';
+import { Container } from 'react-bootstrap';
 
 const HomePage = () => {
   const [showRegister, setShowRegister] = useState(false);
   const { auth } = useAuthContext();
 
   const { token } = auth;
-  console.log(token);
 
   const handleRegister = () => {
     setShowRegister(true);
@@ -54,7 +55,9 @@ const HomePage = () => {
 
       {token && (
         <div>
-          <ProfileCard />
+          <Container>
+            <AllUser/>
+          </Container>
         </div>
       )}
       <Footer />

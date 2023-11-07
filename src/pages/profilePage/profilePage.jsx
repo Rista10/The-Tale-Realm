@@ -5,15 +5,22 @@ import NavBar from '../../components/navBar/navBar'
 import Footer from '../../components/footer/footer'
 import ProfileCard from '../../components/profileCard/profileCard'
 import RecentlyUpadatedStory from '../../components/recentlyUpdated/recentlyUpdated'
+import { useParams } from 'react-router-dom'
 
 const ProfilePage = () => {
+    const {userId}=useParams();
+    
+    const fetchUserData=async()=>{
+        const response=await axios.get('')
+    }
+
     return (
         <div>
             <NavBar />
             <main>
                 <div className='container'>
                     <section className='profile-left-content'>
-                        <ProfileCard />
+                        {/* <ProfileCard /> */}
                         <div className='about-me-container'>
                             <h3 className='about-text-bold'>About me</h3>
                             <p className='about-text-light'>
