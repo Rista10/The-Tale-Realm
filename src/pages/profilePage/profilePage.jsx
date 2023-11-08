@@ -8,10 +8,9 @@ import RecentlyUpadatedStory from '../../components/recentlyUpdated/recentlyUpda
 import { useParams } from 'react-router-dom'
 
 const ProfilePage = () => {
-    const {userId}=useParams();
-    
-    const fetchUserData=async()=>{
-        const response=await axios.get('')
+    const { userId } = useParams();
+    const fetchUserData = async () => {
+        const response = await axios.get('')
     }
 
     return (
@@ -29,11 +28,11 @@ const ProfilePage = () => {
                         </div>
                     </section>
                     <section className='profile-right-content'>
-                            <h3 className='recently-updated-title'>Recently Updated Stories</h3>
-                            <RecentlyUpadatedStory/>
-                            <RecentlyUpadatedStory/>
-                            <RecentlyUpadatedStory/>
-                            <RecentlyUpadatedStory/>
+                        <h3 className='recently-updated-title'>Recently Updated Stories</h3>
+                        <RecentlyUpadatedStory />
+                        <RecentlyUpadatedStory />
+                        <RecentlyUpadatedStory />
+                        <RecentlyUpadatedStory />
                     </section>
                 </div>
             </main>

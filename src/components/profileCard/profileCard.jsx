@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import './profileCard.css'
 
-const ProfileCard = ({user}) => {
+const ProfileCard = ({ user }) => {
     return (
         <div>
             <Container className="py-5 profile-container" >
@@ -11,7 +11,7 @@ const ProfileCard = ({user}) => {
                     <Card.Img className='profile-card-image' alt="User Image" src='https://static.vecteezy.com/system/resources/previews/007/296/443/original/user-icon-person-icon-client-symbol-profile-icon-vector.jpg' />
                     <Card.Body className="text-center " >
                         <Card.Text className="mb-0 profile-text-bold">
-                           {user.username}
+                            {user.username}
                         </Card.Text>
                         <Row className="text-center mb-1">
                             <Col>
