@@ -16,8 +16,8 @@
 
 .profile-container .profile-card-background-image {
     height: 140px;
-    border-top-left-radius: 15px ;
-    border-top-right-radius: 15px;
+    border-top-left-radius:2px ;
+    border-top-right-radius: 2px;
 }
 
 .profile-container .profile-card-image {

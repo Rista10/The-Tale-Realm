@@ -20,7 +20,7 @@ function NavBar() {
   const [showRegister, setShowRegister] = useState(false);
   const { auth } = useAuthContext();
   const navigate = useNavigate();
-  const { token } = auth;
+  const { token, userId } = auth;
 
 
   const handleLogin = () => {
@@ -61,14 +61,14 @@ function NavBar() {
 
               {token && (
                 <Nav>
-                  <DropdownButton variant='secondary' drop='down-centered' title={<img src={book} alt="Logo" width={40} height={40} className="rounded-circle"/>}>
-                    <Dropdown.Item href="#/action-1">Your Profile</Dropdown.Item>
+                  <DropdownButton variant='secondary' drop='down-centered' title={<img src={book} alt="Logo" width={40} height={40} className="rounded-circle" />}>
+                    <Dropdown.Item><Link to={`/userprofile/${userId}`}  className='dropdown-color' >Your Profile </Link></Dropdown.Item>
                     <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
                   </DropdownButton>
                   <Link to="/" className="text-white nav-link">Home</Link>
                   <Link to="/discover" className="text-white nav-link">Discover</Link>
                   <Link to="/stories/create" className="text-white nav-link">Write</Link>
-                  
+
                 </Nav>
               )}
               {!token && (
