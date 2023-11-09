@@ -3,20 +3,23 @@ import SignInModal from '../authentication/signInModal';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Logo from '../../assets/images/logo.png';
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import SignUpModal from '../authentication/signUpModal';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import "./navBar.css"
 import AuthContext from '../../context/authProvider';
 import { useAuthContext } from '../../hooks/useAuthContext';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import book from '../../assets/images/book.png'
 
 function NavBar() {
   const [showLogin, setShowLogin] = useState(false);
   const { setAuth } = useContext(AuthContext);
   const [showRegister, setShowRegister] = useState(false);
   const { auth } = useAuthContext();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const { token } = auth;
 
 
@@ -55,23 +58,27 @@ function NavBar() {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className="justify-content-end flex-grow-1 pe-3">
-              
-                {token && (
-                  <Nav>
-                    <Link to="/" className="text-white nav-link">Home</Link>
-                    <Link to="/discover" className="text-white nav-link">Discover</Link>
-                    <Link to="/stories/create" className="text-white nav-link">Write</Link>
-                    <button className='button-style' onClick={logout}>Logout</button>
-                  </Nav>
-                )}
-                {!token && (
-                  <Nav>
-                    <button className="button-style " onClick={handleLogin} >Login</button>
-                    {showLogin && <SignInModal show={showLogin} onHide={() => setShowLogin(false)} />}
-                    <button type="button" className="button-style-register" onClick={handleRegister}>Register</button>
-                    {showRegister && <SignUpModal show={showRegister} onHide={() => setShowRegister(false)} />}
-                  </Nav>)}
-              
+
+              {token && (
+                <Nav>
+                  <DropdownButton variant='secondary' drop='down-centered' title={<img src={book} alt="Logo" width={40} height={40} className="rounded-circle"/>}>
+                    <Dropdown.Item href="#/action-1">Your Profile</Dropdown.Item>
+                    <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
+                  </DropdownButton>
+                  <Link to="/" className="text-white nav-link">Home</Link>
+                  <Link to="/discover" className="text-white nav-link">Discover</Link>
+                  <Link to="/stories/create" className="text-white nav-link">Write</Link>
+                  
+                </Nav>
+              )}
+              {!token && (
+                <Nav>
+                  <button className="button-style " onClick={handleLogin} >Login</button>
+                  {showLogin && <SignInModal show={showLogin} onHide={() => setShowLogin(false)} />}
+                  <button type="button" className="button-style-register" onClick={handleRegister}>Register</button>
+                  {showRegister && <SignUpModal show={showRegister} onHide={() => setShowRegister(false)} />}
+                </Nav>)}
+
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

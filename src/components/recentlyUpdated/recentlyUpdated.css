@@ -1,12 +1,13 @@
 .recently-updated{
-    width: 95%;
+    padding-left: 10px;
+    width: 93%;
     display: flex;
     justify-content: flex-start;
     padding-top: 2rem;
 }
 
 .recently-updated .image{
-    max-width:15rem;
+    flex: 1;
 }
 
 .recently-updated img{
@@ -15,6 +16,7 @@
     box-sizing: contain;
 }
 .recently-updated .text{
+    flex: 2;
     display: flex;
     flex-direction: column;
     padding-left: 20px;
@@ -35,4 +37,20 @@
 .recently-updated .description{
     text-align: justify;
     font-size: 0.9rem;
+}
+
+.recently-updated-container a{
+    text-decoration: none;
+}
+
+.reacts{
+    display: flex;
+}
+.like{
+    margin-right: 20px;
+}
+@media screen and (max-width:1024px){
+
+
+    
 }

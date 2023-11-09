@@ -3,9 +3,10 @@ import Slider from 'react-slick';
 import axios from '../../api/axios';
 import ProfileCard from '../profileCard/profileCard';
 import './allUser.css'
-import {Link} from 'react-router-dom'
+
 
 const AllUser = () => {
+    const loggedUserId = localStorage.getItem('userId');
 
     const [allUserData, setAllUserData] = useState([]);
 
@@ -19,14 +20,30 @@ const AllUser = () => {
         slidesToScroll: 1,
         responsive: [
             {
-                breakpoint: 800,
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    rows: 1,
+                },
+            },
+            {
+                breakpoint: 956,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    rows: 1,
+                },
+            },
+            {
+                breakpoint: 600,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     rows: 1,
                 },
             },
-        ]
+        ],
     }
 
     const getAllUser = async () => {
@@ -50,15 +67,16 @@ const AllUser = () => {
             <h3 className='all-user-heading'>Most Trending Author</h3>
             <Slider {...settings}>
                 {allUserData.map((user) => {
-                    return <div key={user._id}>
-                        <Link to={`/profile/${user._id}`}>
+                    if (user._id !== loggedUserId) {
+                        return <div key={user._id}>
                             <ProfileCard key={user._id} user={user} />
-                        </Link>
-                    </div>
+                        </div>
+                    }
                 })}
             </Slider>
         </div>
     )
 }
+
 
 export default AllUser

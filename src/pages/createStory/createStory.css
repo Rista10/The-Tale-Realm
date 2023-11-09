@@ -57,6 +57,7 @@ input[list=storyStatus] {
     background-color: white;
     border-radius: 6.34px;
     margin-top: 8px;
+    height: 15rem;
 }
 
 .createStory .createStory-content label{
@@ -103,4 +104,16 @@ input[list=storyStatus] {
         text-align: center;
     }
     
+}
+
+.success-popup{
+    text-align: center;
+    margin-top: 10px;
+    padding: 10px;
+    border: #A0A0A0 dashed 1px;
+    font-weight: bold;
+}
+
+.success-popup p{
+    margin: 0px;
 }

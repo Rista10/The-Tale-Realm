@@ -4,12 +4,11 @@
     border-radius: 10px;
     padding: 20px;
     margin-top: 25px;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 
 .share,.like,.add{
-    padding-right: 40px;
     display: flex;
     flex-direction: column;
 }
@@ -31,14 +30,28 @@
 
 .fa-icon-love{
     margin: 8px 0px 8px 0;
-    font-size: 25px;
+    font-size: 20px;
     margin-right: 6px;
     color: red;
 }
 
 .fa-icon-bookmark{
     margin: 8px 0px 8px 0;
-    font-size: 25px;
+    font-size: 20px;
     margin-right: 6px;
     color: rgb(0, 0, 70);
+}
+
+.share-react p{
+    text-align: center;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.share-react button{
+    text-align: center;
+    font-weight: 300;
+    font-size: 14px;
+    border: none;
+    background-color: white;
 }

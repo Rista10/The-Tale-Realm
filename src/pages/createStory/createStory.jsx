@@ -16,7 +16,8 @@ const CreateStory = () => {
     const [rating, setRating] = useState('');
     const STORY_CREATE_URL = '/stories/create'
     const imageRef = useRef();
-    const [image, setImage ] = useState(null);
+    const [image, setImage] = useState(null);
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
     const handleImageClick = () => {
         imageRef.current.click();
@@ -43,7 +44,7 @@ const CreateStory = () => {
             console.log(response.status)
 
             if (response.status === 201) {
-                console.log("Story posted successfully");
+                await setShowSuccessPopup(true);
             }
         } catch (error) {
             console.error("Error posting story:", error);
@@ -61,7 +62,7 @@ const CreateStory = () => {
                             : <>
                                 <img src={ImageIcon} alt="Icon of image" />
                                 <p className='image-description'>Add a cover image</p></>
-                            }
+                        }
                         <input type="file" ref={imageRef} onChange={handleImageChange} style={{ display: "none" }} />
                     </div>
 
@@ -106,6 +107,11 @@ const CreateStory = () => {
                                 Post Story
                             </button>
                         </form>
+                        {showSuccessPopup && (
+                            <div className="success-popup">
+                                <p>Story posted successfully!</p>
+                            </div>
+                        )}
                     </div>
                 </div>
             </Container>

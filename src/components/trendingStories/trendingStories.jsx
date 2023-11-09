@@ -3,6 +3,7 @@ import React from 'react'
 import { featuredStories } from '../../dummyData'
 import Slider from 'react-slick'
 
+
 const TrendingStories = () => {
     const setting = {
         dots: false,

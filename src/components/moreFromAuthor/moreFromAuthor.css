@@ -67,8 +67,8 @@
     color: rgb(96, 95, 95);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 968px) {
     .sidebar-content .container {
-       width: 24rem;
+       width: 100%;
     }
 }
