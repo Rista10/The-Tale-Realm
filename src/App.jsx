@@ -5,18 +5,28 @@ import Discover from './pages/discoverPage/discover';
 import ProfilePage from './pages/profilePage/profilePage';
 import CreateStory from './pages/createStory/createStory';
 import StoryView from './pages/storyView/storyView';
+import EditProfile from './pages/editProfile/editProfile';
+import Profile from './pages/profilePageView/profile';
 
 function App() {
   return (
     <Router>
       <div className="App">
-      <Routes>
-        <Route path='/' exact element={<HomePage/>}/>
-        <Route path='/discover' element={<Discover/>}/>
-        <Route path='/profile/:id' element={<ProfilePage/>}/>
-        <Route path='/stories/create' element={<CreateStory/>}/>
-        <Route path='/stories/:id' element={<StoryView/>}/>
-      </Routes>
+        <Routes>
+          <Route path='/' exact element={<HomePage />} />
+          <Route path='/discover' element={<Discover />} />
+          <Route path='/profile/:id' element={<ProfilePage />} />
+          <Route path='/stories/create' element={<CreateStory />} />
+          <Route path='/stories/:id' element={<StoryView />} />
+
+          <Route path='/userprofile/:id/edit' element={<EditProfile />} />
+          <Route path='/userprofile/:id/' element={<Profile />} />
+
+
+
+
+
+        </Routes>
       </div>
     </Router>
   );

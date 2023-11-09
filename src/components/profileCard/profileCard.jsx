@@ -3,7 +3,7 @@ import { Card, Row, Col, Button } from "react-bootstrap";
 import './profileCard.css'
 import { Link } from 'react-router-dom';
 
-const ProfileCard = ({user}) => {
+const ProfileCard = ({ user }) => {
     return (
         <div className='profile-container'>
 
