@@ -8,6 +8,8 @@ import StoryView from './pages/storyView/storyView';
 import EditProfile from './pages/editProfile/editProfile';
 import Profile from './pages/profilePageView/profile';
 
+
+
 function App() {
   return (
     <Router>
@@ -18,14 +20,8 @@ function App() {
           <Route path='/profile/:id' element={<ProfilePage />} />
           <Route path='/stories/create' element={<CreateStory />} />
           <Route path='/stories/:id' element={<StoryView />} />
-
           <Route path='/userprofile/:id/edit' element={<EditProfile />} />
           <Route path='/userprofile/:id/' element={<Profile />} />
-
-
-
-
-
         </Routes>
       </div>
     </Router>

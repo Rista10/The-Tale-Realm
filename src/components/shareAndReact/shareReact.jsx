@@ -1,6 +1,5 @@
 import './shareReact.css'
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaHeart, FaBookmark } from 'react-icons/fa'
-
 import React, { useState, useEffect } from 'react'
 import axios from '../../api/axios';
 

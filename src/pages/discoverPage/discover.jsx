@@ -7,6 +7,7 @@ import TrendingStories from '../../components/trendingStories/trendingStories'
 import './discover.css'
 import MoreFromAuthor from '../../components/moreFromAuthor/moreFromAuthor'
 import Category from '../../components/category/category'
+import { SearchBar } from '../../components/searchBar/searchBar'
 
 const Discover = () => {
   return (
@@ -16,6 +17,7 @@ const Discover = () => {
       <div className='container'>
           <section className='mainContent'>
             <h2>Discover Stories</h2>
+            <SearchBar/>
             <PopularStories/>
             <FeaturedStories/>
             <TrendingStories/>

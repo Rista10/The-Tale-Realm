@@ -6,7 +6,7 @@ import './style.css'
 import SignUpModal from '../../components/authentication/signUpModal';
 import { FaBook, FaPen, FaUser } from "react-icons/fa";
 import { useAuthContext } from '../../hooks/useAuthContext';
-import ProfileCard from '../../components/profileCard/profileCard';
+import { motion } from 'framer-motion'
 import AllUser from '../../components/allUser/allUser';
 import { Container } from 'react-bootstrap';
 
@@ -29,7 +29,13 @@ const HomePage = () => {
             <div className="home-description">
               <h1>YOUR SOCIAL STORYTELLING PLATFORM</h1>
               <p>Welcome to the collective of fierce creators, whether you already are one or have a desire to become one. Get feedback on your writing and connect with thousands of people that love storytelling!</p>
-              <button onClick={handleRegister}>Join now</button>
+              <motion.button onClick={handleRegister} 
+              whileHover={{
+                scale: 1.1,
+                boxShadow:  '0 0 15px rgba(105, 65, 198, 0.8)',
+              }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.3 }}>Join now</motion.button>
               {showRegister && <SignUpModal show={showRegister} onHide={() => setShowRegister(false)} />}
             </div>
           </div>
@@ -56,7 +62,7 @@ const HomePage = () => {
       {token && (
         <div>
           <Container>
-            <AllUser/>
+            <AllUser />
           </Container>
         </div>
       )}

@@ -25,3 +25,48 @@
     border: none;
     align-self: flex-end;
 }
+
+.user-comment{
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.user-comment .image{
+    height: 40px;
+    width: 40px;
+}
+
+.user-comment img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-sizing: cover;
+}
+
+.user-comment-content p{
+    margin: 0;
+    margin-left: 10px;
+    margin-right: 10rem;
+}
+
+.user-name{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.user-comment{
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.fa-icon-love-comment{
+    margin: 8px 0px 8px 0;
+    font-size: 20px;
+    margin-right: 6px;
+    color: red;
+}
+
+.user-comment span{
+    margin-top: 5px;
+}
