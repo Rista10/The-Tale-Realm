@@ -1,9 +1,10 @@
 import "./popularStories.css"
-import React from 'react'
+import React, { useEffect } from 'react'
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { popularStories } from "../../dummyData"
+import axios from "../../api/axios";
 
 const PopularStories = () => {
     const settings = {
@@ -26,6 +27,25 @@ const PopularStories = () => {
           },
         ],
       }
+
+      const POPULAR_STORIES_URL = 'stories/get/popular';
+      const token = localStorage.getItem('token');
+
+      const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        }
+    }
+
+      useEffect(() => {
+        const popularStories = async () => {
+            const response = await axios.get(POPULAR_STORIES_URL,config)
+            return response.data;
+        }
+        popularStories();
+    },[])
+
+
     return (
         <>
             <section className="popular">

@@ -43,7 +43,7 @@ function NavBar() {
     <Navbar expand="lg" bg="dark" data-bs-theme="dark" className='navbar-container'>
       <Container fluid>
         <Navbar.Brand>
-          <img src={Logo} alt="Logo of tale realm" max-width={305} height={100} />
+          <img src={Logo} alt="Logo of tale realm" width={305} height={100} />
         </Navbar.Brand>
         <Navbar.Toggle ria-controls={`offcanvasNavbar-expand-lg`} />
         <Navbar.Offcanvas className="bg-dark"
@@ -53,7 +53,7 @@ function NavBar() {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
-              <img src={Logo} alt="Logo of tale realm" max-width={305} height={100} />
+              <img src={Logo} alt="Logo of tale realm" width={305} height={100} />
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>

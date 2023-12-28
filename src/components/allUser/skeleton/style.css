@@ -1,0 +1,29 @@
+.Skeleton-Container{
+    display: flex;
+    gap:1rem;
+}
+
+
+.Skeleton{
+    width:20rem;
+    height: 24rem;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.5rem rgba(0,0,0,0.1);
+    animation: skeleton 1s ease-in-out infinite;
+    transition: all 0.3s ease-in-out;
+}
+
+@keyframes skeleton {
+    0%{
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0.5;
+    }
+}

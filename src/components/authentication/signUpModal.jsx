@@ -65,7 +65,7 @@ function SignUpModal(props) {
       console.log("signIn success");
       console.log(response);
       await handleCloseModal();
-      navigate('/home');
+      navigate('/');
     } catch (error) {
       console.log(error);
     }

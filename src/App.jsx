@@ -7,6 +7,9 @@ import CreateStory from './pages/createStory/createStory';
 import StoryView from './pages/storyView/storyView';
 import EditProfile from './pages/editProfile/editProfile';
 import Profile from './pages/profilePageView/profile';
+import SearchPage from './pages/searchPage/searchPage';
+import Footer from './components/footer/footer';
+import StarField from './components/cursor/NewCursor.jsx';
 
 
 
@@ -14,6 +17,7 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <StarField />
         <Routes>
           <Route path='/' exact element={<HomePage />} />
           <Route path='/discover' element={<Discover />} />
@@ -22,7 +26,9 @@ function App() {
           <Route path='/stories/:id' element={<StoryView />} />
           <Route path='/userprofile/:id/edit' element={<EditProfile />} />
           <Route path='/userprofile/:id/' element={<Profile />} />
+          <Route path='/search/:query' element={<SearchPage/>} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

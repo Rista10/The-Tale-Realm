@@ -1,8 +1,7 @@
 import './storyView.css'
 import NavBar from '../../components/navBar/navBar'
-import Footer from '../../components/footer/footer'
 import Book from '../../assets/images/book.png'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import MoreFromAuthor from '../../components/moreFromAuthor/moreFromAuthor'
 import { Container } from 'react-bootstrap'
 import CommentBox from '../../components/comment/comment'
@@ -67,7 +66,6 @@ const StoryView = () => {
                         </section>
                 </div>
             </Container>
-            <Footer />
 
         </>
     )

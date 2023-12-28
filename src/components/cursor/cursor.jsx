@@ -4,6 +4,9 @@ import './cursor.css'
 import { FaStar } from 'react-icons/fa'
 
 const Cursor = () => {
+
+    console.log(cursorPosition)
+    const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
     const [dots, setDots] = useState([]);
     const colors = [
         'rgb(115, 45, 217)',
@@ -26,19 +29,59 @@ const Cursor = () => {
         const randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
     }
-    
+
     useEffect(() => {
+        const start = new Date().getTime();
+        const originPosition = { x: 0, y: 0 };
+        let count = 0;
+        const config = {
+            starAnimationDuration: 1500,
+            minimumTimeBetweenStars: 250,
+            minimumDistanceBetweenStars: 75,
+            glowDuration: 75,
+            maximumGlowPointSpacing: 10,
+            colors: ["249 146 253", "252 254 255"],
+            sizes: ["1.4rem", "1rem", "0.6rem"],
+            animations: ["fall-1", "fall-2", "fall-3"]
+          }
+
+          const updateCursor = (e) => {
+            console.log(e.clientX, e.clientY);
+            setCursorPosition({ x: e.clientX, y: e.clientY });
+          };
+
+        const calcDistance = (a, b) => {
+            const diffX = b.x - a.x,
+                  diffY = b.y - a.y;
+            
+            return Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
+          }
+
+        const calcElapsedTime = (start, end) => end - start;
+
+        const last = {
+            starTimestamp: start,
+            starPosition: originPosition,
+            mousePosition: originPosition
+          }
         const mousemove = (e) => {
             const newDot = { x: e.clientX, y: e.pageY, id: Date.now() };
             setDots((prevDots) => [...prevDots.slice(-49), newDot]);
-        };
+
+            const now = new Date().getTime();
 
         window.addEventListener("mousemove", mousemove);
 
+            window.addEventListener('mousemove', updateCursor);
+            window.addEventListener('scroll', updateCursor);
+
         return () => {
             window.removeEventListener("mousemove", mousemove);
+            window.removeEventListener('mousemove', updateCursor);
+            window.removeEventListener('scroll', updateCursor);
         };
-    }, []);
+    }
+    },);
 
     return (
         <>
@@ -46,7 +89,7 @@ const Cursor = () => {
             {dots.map(dot => (
                 <motion.div
                     key={dot.id}
-                    style={{ position: 'absolute', left: dot.x, top: dot.y, zIndex:9999 }}
+                    style={{ position: 'absolute',     top: `${cursorPosition.y}px`,left: `${cursorPosition.x}px`, zIndex:9999,height:'100%' }}
                     animate={{ scale: 0, transition: { duration: 0.5 } }}
                 >
                     <FaStar className='dot' style={{ color: selectColors(colors),boxShadow: `0 0 10px ${selectGlowingColors(glowingColor)}`,borderRadius:'50%' }} />
