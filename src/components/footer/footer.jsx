@@ -1,4 +1,4 @@
-import React from "react"
+// import React from "react"
 import Logo from '../../assets/images/logo.png'
 import './footer.css'
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaYoutubeSquare } from "react-icons/fa";

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import NavBar from '../../components/navBar/navBar';
 import Footer from '../../components/footer/footer';
 import Background from '../../assets/images/homeBackground.png'
@@ -9,6 +9,8 @@ import { useAuthContext } from '../../hooks/useAuthContext';
 import { motion } from 'framer-motion'
 import AllUser from '../../components/allUser/allUser';
 import { Container } from 'react-bootstrap';
+import { Slider } from '../../components/slider/slider';
+import UserProfileCardSkeleton from '../../components/userProfileCard/userProfileCardSkeleton';
 
 const HomePage = () => {
   const [showRegister, setShowRegister] = useState(false);
@@ -20,7 +22,7 @@ const HomePage = () => {
     setShowRegister(true);
   };
   return (
-    <div>
+    <div className='homepage'>
       <NavBar />
       {!token && (
         <div>
@@ -66,7 +68,6 @@ const HomePage = () => {
           </Container>
         </div>
       )}
-      <Footer />
     </div>
   );
 }

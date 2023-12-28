@@ -1,4 +1,8 @@
-.category {
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* .category {
     font-size: 12px;
     font-weight: 500;
     color: #ffff;
@@ -45,4 +49,4 @@ h4{
 p{
     color: black;
 }
-
+ */

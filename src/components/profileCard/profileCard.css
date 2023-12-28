@@ -1,64 +1,83 @@
 .profile-container{
-    width: 270px;
-    margin: 30px 10px;
-}
-.profile-container .profile-card{
-    width: 270px;
-    border-radius: 2px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-}
-
-.profile-container .cardfooter {
-    background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-}
-
-.profile-container .profile-card-background-image {
-    height: 140px;
-    border-top-left-radius:2px ;
-    border-top-right-radius: 2px;
-}
-
-.profile-container .profile-card-image {
-    width: 96px;
-    height: 96px;
-    margin: auto;
-    position: absolute;
-    top: 58px;
-    left: 87px;
-    border: 5px white solid;
-    border-radius: 48px;
-}
-
-.profile-container .profile-text-bold {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 4px;
-}
-
-.profile-container .profile-text-light {
-    font-size: 12.5px;
-    font-weight: 400;
-    color: hsl(0, 0%, 59%);
-}
-
-.profile-container .button-row {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    transition: all 0.3s ease-in-out;
+    background:white;
+    margin: 10px;
+
+}
+
+
+.profile-container:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.background img{
+width: 100%;
+
+}
+
+.userImage img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    z-index: 2;
+    position: relative;
+    top: -50px;
+}
+
+.userDetails{
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.profile-container .profile-button {
-    margin-top: 10px;
-    border: none;
-    border-radius: 10px;
-    background-color: #6941C6;
-    width: 100px;
+.user-info{
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    top: -30px;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
 }
 
-.profile-card a{
-    text-decoration: none;
-    color: blueviolet;
+.follow-button{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-color: #6941C6;
+    color: white;
+    border: none;
+    width: 300px;
+    height: 40px;
+    font-weight: bold;
+}
+
+.follow{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+    top:-40px;
+}
+
+.details{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.Bold{
+    font-weight: bold;
 }

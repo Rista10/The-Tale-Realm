@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react'
+/* eslint-disable react/prop-types */
+/* eslint-disable react-hooks/exhaustive-deps */
+import{ useEffect, useState } from 'react'
 import './comment.css'
 import axios from '../../api/axios';
 import book from '../../assets/images/book.png'
@@ -67,7 +69,7 @@ const CommentBox = ({ story }) => {
         <input type="button" value="Submit" onClick={postComment} />
         {commentList.map((comment) => {
 
-          return <div className='user-comment'>
+          return <div key={comment._id} className='user-comment'>
             <div className="image">
               <img src={book} alt="" />
             </div>

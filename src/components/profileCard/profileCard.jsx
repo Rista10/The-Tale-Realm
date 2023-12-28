@@ -1,41 +1,84 @@
-import React from 'react';
-import { Card, Row, Col, Button } from "react-bootstrap";
+/* eslint-disable react/prop-types */
 import './profileCard.css'
-import { Link } from 'react-router-dom';
+import { useState ,Link} from 'react';
+import baseURL from '../../api/baseURL';
+
+
+function followTheUser(id,isFollowing,setIsFollowing,setIsLoading,user) {
+
+
+    setIsLoading(true);
+    const url = `${baseURL}${isFollowing ? `/users/unfollow/${id}` : `/users/follow/${id}`}`;
+
+    const token = localStorage.getItem('token');
+
+    fetch(url, {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+            credentials: 'include',
+            useCors: true,
+        method:"POST",}
+        )
+        .then(data=>{
+            setIsFollowing(!isFollowing);
+            setIsLoading(false);
+            // document.getElementById(data._id)
+            const userDiv =  document.getElementById(id);
+            userDiv.remove()
+        })
+        .catch(error=>{
+            console.error("Errors : ",error)
+            setIsLoading(false)
+        })
+   
+}
+
 
 const ProfileCard = ({ user }) => {
+
+    const [isFollowing, setIsFollowing] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
     return (
         <div className='profile-container'>
-
-                <Card className="profile-card">
-                    <Card.Img className='profile-card-background-image' src="https://static.vecteezy.com/system/resources/thumbnails/006/965/779/small/empty-top-wooden-table-and-sakura-flower-with-fog-and-morning-light-background-photo.jpg" alt="Background Image" variant="top" />
-                    <Card.Img className='profile-card-image' alt="User Image" src='https://static.vecteezy.com/system/resources/previews/007/296/443/original/user-icon-person-icon-client-symbol-profile-icon-vector.jpg' />
-                    <Card.Body className="text-center " >
-                    <Link to={`/profile/${user._id}`}>
-                        <Card.Text className="mb-0 profile-text-bold">
-                           {user.username}
-                        </Card.Text></Link>
-                        <Row className="text-center mb-1">
-                            <Col>
-                                <Card.Text className='profile-text-bold'>{user.stories.length}</Card.Text>
-                                <Card.Text className='profile-text-light'>Stories</Card.Text>
-                            </Col>
-                            <Col>
-                                <Card.Text className='profile-text-bold' >{user.followers.length}</Card.Text>
-                                <Card.Text className='profile-text-light'>Followers</Card.Text>
-                            </Col>
-                            <Col>
-                                <Card.Text className='profile-text-bold '>{user.following.length}</Card.Text>
-                                <Card.Text className='profile-text-light'>Following</Card.Text>
-                            </Col>
-                        </Row>
-                        <Row className='button-row'>
-                            <Button className='profile-button'>Follow</Button>
-                        </Row>
-                    </Card.Body>
-                </Card>
-
+            <div className="background">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/006/965/779/small/empty-top-wooden-table-and-sakura-flower-with-fog-and-morning-light-background-photo.jpg" alt="Background Image"/>
+            </div>
+            <div className="userImage">
+                <img src='https://static.vecteezy.com/system/resources/previews/007/296/443/original/user-icon-person-icon-client-symbol-profile-icon-vector.jpg' alt="User Image"/>
+            </div>
+            <div className="userDetails">
+                <div className="user-info">
+                    <a href={`/profile/${user._id}`}>{user.username}</a>
+                </div>
+                <div className="follow">
+                    <div className="details">
+                    <div className="followers">
+                        <div className='Bold'>
+                            Followers
+                        </div>
+                        <span>{user.followers.length}</span>
+                        
+                    </div>
+                    <div className="following">
+                        <div className='Bold'>
+                            Following
+                            </div>
+                        <span>{user.following.length}</span>
+                    </div>
+                    </div>
+                    
+                    <div className="stories Bold">
+                        <span>Stories : {user.stories.length}</span>
+                    </div>
+                </div>
+                </div>
+                <div className="follow-button" onClick={()=>followTheUser(user._id,isFollowing,setIsFollowing,setIsLoading,user)}>
+                    {isLoading?'Loading...':isFollowing?"Unfollow":"Follow"}
+                </div>
         </div>
+
     );
 };
 

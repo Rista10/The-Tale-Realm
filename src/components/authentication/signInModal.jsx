@@ -55,11 +55,11 @@ function SignInModal(props) {
       if (!error?.response) {
         setError("No server response")
       } else if (error.response?.status === 400) {
-        setErrMsg('Missing Username or Password');
+        setError('Missing Username or Password');
       } else if (error.response?.status === 401) {
-        setErrMsg('Unauthorized');
+        setError('Unauthorized');
       } else {
-        setErrMsg('Login Failed');
+        setError('Login Failed');
       }
 
     }
