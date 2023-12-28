@@ -117,3 +117,61 @@ input[list=storyStatus] {
 .success-popup p{
     margin: 0px;
 }
+
+.tags-input {
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	min-height: 40px;
+	padding: 0 8px;
+	margin: 8px 0;
+    border: 1px solid #A0A0A0;
+	border-radius: 6px;
+}
+
+
+.createStory .createStory-content .tags-input input[type=text]{
+		flex: 1;
+		border: none;
+        border-radius: none;
+		padding: 4px 0 0 0;
+        margin: 0px;
+        &:focus {
+			outline: transparent;
+		}
+}
+
+#tags {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0;
+	margin: 8px 0 0 0;
+}
+
+.tag {
+	width: auto;
+	height: 28px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgb(81, 81, 81);
+	padding: 0 8px;
+	font-size: 14px;
+	list-style: none;
+	border-radius: 16px;
+	margin: 0 8px 8px 0;
+	background: #d7d7d7;
+	.tag-close {
+		display: block;
+		width: 16px;
+		height: 16px;
+		line-height: 14px;
+		text-align: center;
+		font-size: 14px;
+		margin-left: 4px;
+        border-radius: 50%;
+        background-color: #eeeeee;
+		color:rgb(81, 81, 81);
+		cursor: pointer;
+	}
+}

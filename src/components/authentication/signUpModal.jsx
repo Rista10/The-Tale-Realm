@@ -77,7 +77,7 @@ function SignUpModal(props) {
         <Modal.Title id="contained-modal-title-vcenter bold">Register</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='auth-form'>
           <label htmlFor="userName" className="form-label">
             Username
           </label>

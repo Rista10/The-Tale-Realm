@@ -16,9 +16,9 @@ input[type=submit] {
     letter-spacing: 5px;
   }
   
+
   input[type=text],
-  input[type=password],
-  input[type=email] {
+  input[type=password] {
     width: 100%;
     padding: 10px;
     margin: 8px 0 10px 0;
@@ -29,6 +29,16 @@ input[type=submit] {
     border-radius: 5px 5px 0 0;
   }
   
+  .auth-form  input[type=email] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 10px 0;
+    box-sizing: border-box;
+    background-color:#F6E9FF;
+    border: none;
+    border-bottom: 2px solid rgb(137, 137, 137);
+    border-radius: 5px 5px 0 0;
+  }
   .sign-up p{
     text-align: center;
   }

@@ -10,7 +10,7 @@ import axios from '../../api/axios';
 const CreateStory = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [tags, setTags] = useState('');
+    const [tags, setTags] = useState([]);
     const [genre, setGenre] = useState('');
     const [status, setStatus] = useState('');
     const [rating, setRating] = useState('');
@@ -19,6 +19,7 @@ const CreateStory = () => {
     const [image, setImage] = useState(null);
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
+    console.log(tags)
     const handleImageClick = () => {
         imageRef.current.click();
     }
@@ -27,6 +28,20 @@ const CreateStory = () => {
         const file = event.target.files[0];
         setImage(file);
     }
+
+    
+    const addTags = (e) => {
+        if (e.target.value !== "") {
+            e.preventDefault(); 
+            setTags([...tags, e.target.value]);
+            e.target.value = "";
+        }
+    }
+
+    const removeTag=(tagToRemove)=>{
+        setTags(tags.filter((tag,index)=>index!==tagToRemove))
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
@@ -75,8 +90,18 @@ const CreateStory = () => {
                             <label htmlFor="storyDescription">Content*</label>
                             <textarea name="storyDescription" value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Content of your story'></textarea>
 
+
                             <label htmlFor="storyTags">Tags*</label>
-                            <input type="text" required className='storyTags' value={tags} onChange={(e) => setTags(e.target.value)} placeholder='example: #summer #love #vampire' />
+                            <div className="tags-input">
+  
+                                <input
+                                    type="text"
+                                    required
+                                    onKeyUp={e => (e.key === " " ? addTags(e) : null)}
+                                    placeholder='Enter tags: #summer #love #vampire'
+                                />
+                            </div>
+
 
                             <label htmlFor="storyGenre">Genre*</label>
                             <input list="storyGenre" required value={genre} onChange={(e) => { setGenre(e.target.value) }} placeholder='Horror' />

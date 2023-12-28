@@ -1,3 +1,6 @@
+*{
+    user-select: none;
+}
 .category {
     font-size: 12px;
     font-weight: 500;

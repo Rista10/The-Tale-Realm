@@ -26,8 +26,7 @@ const Cursor = () => {
         const randomIndex = Math.floor(Math.random() * colors.length);
         return colors[randomIndex];
     }
-    console.log(dots)
-
+    
     useEffect(() => {
         const mousemove = (e) => {
             const newDot = { x: e.clientX, y: e.pageY, id: Date.now() };
