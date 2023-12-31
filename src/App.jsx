@@ -28,8 +28,7 @@ function App() {
           <Route path='/userprofile/:id/' element={<Profile />} />
           <Route path='/search/:query' element={<SearchPage/>} />
         </Routes>
-        <Footer />
-      </div>
+         </div>
     </Router>
   );
 }

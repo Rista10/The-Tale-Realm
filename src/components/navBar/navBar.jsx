@@ -12,7 +12,7 @@ import AuthContext from '../../context/authProvider';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import book from '../../assets/images/book.png'
+import Rista from '../../assets/Team/rista.png'
 
 function NavBar() {
   const [showLogin, setShowLogin] = useState(false);
@@ -64,7 +64,7 @@ function NavBar() {
                   <DropdownButton
                   variant=''
                     drop='down-centered'
-                    title={<img src={book} alt="Logo" width={40} height={40} className="rounded-circle" />}
+                    title={<img src={Rista} alt="Logo" width={40} height={40} className="rounded-circle" />}
                     className="bg-sky-950" 
                   >
                     <Dropdown.Item><Link to={`/userprofile/${userId}`} className='dropdown-color text-black'>Your Profile </Link></Dropdown.Item>
