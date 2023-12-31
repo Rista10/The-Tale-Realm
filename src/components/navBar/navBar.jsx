@@ -40,7 +40,7 @@ function NavBar() {
   }
 
   return (
-    <Navbar expand="lg" bg="dark" data-bs-theme="dark" className='navbar-container'>
+    <Navbar expand="lg" className='navbar-container bg-sky-950'>
       <Container fluid>
         <Navbar.Brand>
           <img src={Logo} alt="Logo of tale realm" width={305} height={100} />
@@ -61,8 +61,13 @@ function NavBar() {
 
               {token && (
                 <Nav>
-                  <DropdownButton variant='secondary' drop='down-centered' title={<img src={book} alt="Logo" width={40} height={40} className="rounded-circle" />}>
-                    <Dropdown.Item><Link to={`/userprofile/${userId}`}  className='dropdown-color' >Your Profile </Link></Dropdown.Item>
+                  <DropdownButton
+                  variant=''
+                    drop='down-centered'
+                    title={<img src={book} alt="Logo" width={40} height={40} className="rounded-circle" />}
+                    className="bg-sky-950" 
+                  >
+                    <Dropdown.Item><Link to={`/userprofile/${userId}`} className='dropdown-color text-black'>Your Profile </Link></Dropdown.Item>
                     <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
                   </DropdownButton>
                   <Link to="/" className="text-white nav-link">Home</Link>

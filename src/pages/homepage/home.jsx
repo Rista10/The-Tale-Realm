@@ -11,6 +11,7 @@ import AllUser from '../../components/allUser/allUser';
 import { Container } from 'react-bootstrap';
 import { Slider } from '../../components/slider/slider';
 import UserProfileCardSkeleton from '../../components/userProfileCard/userProfileCardSkeleton';
+import FollowedUserStoryCard from '../../components/followedUserFeed/followedUserFeed';
 
 const HomePage = () => {
   const [showRegister, setShowRegister] = useState(false);
@@ -64,7 +65,8 @@ const HomePage = () => {
       {token && (
         <div>
           <Container>
-            <AllUser />
+            <FollowedUserStoryCard title={"Hello World"} description={"Hello world jdfkghj jhfjhfjdldglkerbriu 5r hrllo risyaidshsjfhjfbhfndjf Hello world jdfkghj jhfjhfjdldglkerbriu 5r hrllo risyaidshsjfhjfbhfndjf Hello world jdfkghj jhfjhfjdldglkerbriu 5r hrllo risyaidshsjfhjfbhfndjf Hello world jdfkghj jhfjhfjdldglkerbriu 5r hrlloHello world jdfkghj jhfjhfjdldglkerbriu 5r hrllo risyaidshsjfhjfbhfndjf risyaidshsjfhjfbhfndjf"}/>
+            {/* <AllUser /> */}
           </Container>
         </div>
       )}

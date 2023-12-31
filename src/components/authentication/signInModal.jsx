@@ -106,8 +106,7 @@ function SignInModal(props) {
             Don't have an account? <span><a href="/sign-up">Sign Up</a></span>
           </p>
         </div>
-        <button className="google-sign-in">Sign in with Google</button>
-        <button className="facebook-sign-in">Sign in with Facebook</button>
+        
       </Modal.Body>
     </Modal>
   );

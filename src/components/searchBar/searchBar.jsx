@@ -2,6 +2,8 @@ import { Link, Navigate,useNavigate } from 'react-router-dom';
 import axios from '../../api/axios';
 import './style.css'
 import { useForm } from "react-hook-form"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export function SearchBar(){
 
@@ -31,9 +33,16 @@ export function SearchBar(){
             navigate(`/search/${data.Search}`)
           })}
         >
-            <input type="text" placeholder="Search..." {...register("Search", { required: "Search is required" })} />
-          {errors.example && <p>{errors.example.message}</p>}
-          <input type="submit" />
+           <div className="search-wrapper">
+
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          {...register("Search", { required: "Search is required" })} 
+        />
+                <FontAwesomeIcon icon={faSearch} className="search-icon" />
+      </div>
+      {errors.Search && <p>{errors.Search.message}</p>}
         </form>
       );
 }

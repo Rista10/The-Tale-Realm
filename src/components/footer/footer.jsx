@@ -3,7 +3,7 @@ import Logo from '../../assets/images/logo.png'
 import './footer.css'
 import { FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaYoutubeSquare } from "react-icons/fa";
 
-const Footer = () => <footer className="page-footer bg-dark">
+const Footer = () => <footer className="page-footer bg-sky-950">
     <div className="container-fluid text-center text-md-left">
         <div className="row">
             <div className="col-md-6 mt-md-0 mt-3">

@@ -11,8 +11,8 @@ import { SearchBar } from '../../components/searchBar/searchBar'
 const Discover = () => {
   return (
     <div>
-      <NavBar/>
       <main>
+        <NavBar/>
       <div className='container'>
           <section className='mainContent'>
             <h2>Discover Stories</h2>
