@@ -1,15 +1,14 @@
-.Slider-container{
-   display: flex;
-   gap: 20px;
-   align-items: center;
-   justify-content: center;
+.Slider{
+    display:flex;
+    justify-content: center;
+    max-width: 80vw;
 }
 
-.Slider{
+.Slider-container{
     display: flex;
-    max-width: 100%;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    align-self: start;
-    overflow-anchor: none;
+    flex-direction: row;
+    width:100vw;
+    overflow: auto;
+    padding-bottom: 20px;
+    gap:10px;
 }

@@ -7,7 +7,7 @@ import {
     Button,
 } from "@material-tailwind/react";
 
-const SearchCard = ({ title, description }) => {
+const SearchCard = ({ story }) => {
 
     return (
         <Card className="mt-6 w-96 mb-10 bg-gray-50">
@@ -19,20 +19,20 @@ const SearchCard = ({ title, description }) => {
             </CardHeader>
             <CardBody>
                 <Typography variant="h5" color="blue-gray" className="mb-2">
-                    {title}
+                    {story.title}
                 </Typography>
                 <Typography className="italic text-sm pb-2" >
                     Rista Shrestha
                 </Typography>
                 <Typography>
-                    {description}
+                    {story.content.slice(0,100)}
                 </Typography>
             </CardBody>
             <CardFooter className="pt-0 flex justify-between">
                 <Button className="text-grey border-1 border-black py-2 px-3">Read More</Button>
 
-                <p className="text-black py-2 px-3 font-medium text-sm">10 Likes</p>
-                <p className="text-black py-2 px-3 font-medium text-sm">5 Comments</p>
+                <p className="text-black py-2 px-3 font-medium text-sm">{story.likes.length} Likes</p>
+                <p className="text-black py-2 px-3 font-medium text-sm">{story.comments.length} Comments</p>
 
             </CardFooter>
         </Card>

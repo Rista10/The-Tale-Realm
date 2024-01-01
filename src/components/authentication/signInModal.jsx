@@ -47,7 +47,7 @@ function SignInModal(props) {
 
       await setAuth({ type:'LOGIN',payload:{token:token,userId:userId}})
 
-      await handleCloseModal();
+      handleCloseModal();
 
       navigate('/');
 

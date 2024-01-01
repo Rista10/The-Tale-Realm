@@ -14,10 +14,100 @@ import Rista from '../../assets/Team/rista.png'
 import Sasa from '../../assets/Team/sasa.png'
 import Butterfly from '../../assets/butterfly.png'
 import FollowedUserStoryCard from '../../components/followedUserFeed/followedUserFeed';
-import StarField from '../../components/cursor/NewCursor';
+import { Link } from 'react-router-dom';
+import axios from '../../api/axios';
+import { useEffect } from 'react';
 
 const url = (name, wrap = false) =>
   `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
+
+
+const FollowerStoryList = () => {
+  const [stories, setStories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const halfLength = Math.ceil(stories.length / 2);
+  const firstHalf = stories.slice(0, halfLength);
+  const secondHalf = stories.slice(halfLength);
+  const [userName, setUserName] = useState('');
+
+  const getUserDetails = async () => {
+    const token = localStorage.getItem('token');
+    const loggedUserId = localStorage.getItem('userId');
+    try {
+      const response = await axios.get(`/users/profile/${loggedUserId}`, {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      });
+      if (response.status === 200) {
+        const data = response.data;
+        localStorage.setItem('userName', data.username);
+        setUserName(data.username);
+      } else {
+        console.log('There was some error');
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
+  };
+
+  const fetchStory = async () => {
+    const token = localStorage.getItem('token');
+    const loggedUserId = localStorage.getItem('userId');
+    
+    try {
+      const response = await axios.get(`/stories/following/feed?${loggedUserId}`, {
+        headers: {
+          Authorization: 'Bearer ' + token,
+        },
+      });
+      if (response.status === 200) {
+        setStories(response.data);
+        setIsLoading(false);
+      } else {
+        console.log('There was some error');
+      }
+    } catch (error) {
+      console.log(error.response.data);
+    }
+}
+
+  useEffect(() => {
+    getUserDetails();
+    fetchStory();
+  }, []);
+
+  return (
+    <div className='flex flex-col items-center'>
+      <h3 className='text-2xl font-bold'>Your Feed @{userName}</h3>
+      {isLoading ? (
+        <h1 className='text-center mt-8'>Loading...</h1>
+      ) : (
+        <div className='flex flex-col space-y-4 items-center '>
+          
+          {firstHalf.map((story) => (
+            <Link to={`/stories/${story._id}`} key={story}>
+              <FollowedUserStoryCard
+                story={story}
+              />
+            </Link>
+          ))}
+          <AllUser />
+          {secondHalf.map((story) => (
+            <Link to={`/stories/${story._id}`} key={story}>
+              <FollowedUserStoryCard
+                story={story}
+              />
+            </Link>
+          ))}
+
+        </div>
+      )}
+    </div>
+  );
+};
+
+
 const HomePage = () => {
 
   const [showRegister, setShowRegister] = useState(false);
@@ -37,8 +127,7 @@ const HomePage = () => {
       {!token && (
         <>
           <div style={{ width: '100%', height: '100%' }}>
-            <Parallax ref={parallax} pages={3} style={{ backgroundColor: '#082f49' }}>
-            <StarField/>
+            <Parallax ref={parallax} pages={3} style={{ backgroundColor: '#082f49' ,position:"absolute"}}>
               <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#082f49' }} />
               <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#082f49' }} />
 
@@ -200,21 +289,12 @@ const HomePage = () => {
       )}
 
       {token && (
-        <div>
-
-      <main>
-      <div className='container'>
-            <section className='mainContent'>
-              <h2>Hi Rista</h2>
-              <FollowedUserStoryCard title={"Hello World"} description={"Hello world "} />
-            </section>
-            <section className='sideContent'>
-              <AllUser />
-            </section>
+      <>
+      <div className=' bg-slate-300'>
+              <FollowerStoryList/>
           </div>
-      </main>
           <Footer />
-        </div>
+        </>
       )}
     </div>
   );

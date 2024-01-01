@@ -1,5 +1,6 @@
 import person from '../../assets/background.png'
 import { TypeAnimation } from 'react-type-animation';
+import Starfield from '../../components/cursor/NewCursor';
 
 export default function FirstPage(){
     return(
@@ -10,9 +11,7 @@ export default function FirstPage(){
               backgroundSize: 'cover',
             }}
             >
-              {/* <video autoPlay loop muted className="absolute z-0 w-full h-full  object-cover opacity-75">
-                <source src={video} type="video/mp4" />
-              </video> */}
+              <Starfield />
               <div className="flex flex-col items-start justify-center w-full p-5 z-10">
                 <div className='text-5xl text-white'>
                   Welcome to 

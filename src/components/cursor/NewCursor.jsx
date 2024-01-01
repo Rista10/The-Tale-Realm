@@ -122,7 +122,11 @@ const appendElement = element => document.body.appendChild(element),
   };
 
   const handleOnMove = e => {
-    const mousePosition = { x: e.clientX, y: e.clientY }
+    console.log(e.pageX,e.pageY)
+    const mousePosition = {
+       x: e.clientX + window.scrollX,
+       y: e.clientY+ window.scrollY,
+       }
     
     adjustLastMousePosition(mousePosition);
     
@@ -153,19 +157,20 @@ const appendElement = element => document.body.appendChild(element),
 
   return <>
    {stars.map(star => (
-    console.log(star),
       <FaStar
         key={star.id}
         style={{
           position: 'absolute',
-          left: `${star.position.x}%`,
-          top: `${star.position.y}%`,
+          left: `${star.position.x}px`,
+          top: `${star.position.y}px`,
           fontSize: star.size,
           color: star.color,
           textShadow: star.shadow,
           animationName: star.animation,
           animationDuration: ms(config.starAnimationDuration),
-          zIndex:999
+          zIndex:999,
+          margin:0,
+          padding:0,
         }}
       />
     ))}

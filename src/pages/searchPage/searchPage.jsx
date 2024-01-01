@@ -50,7 +50,7 @@ export default function SearchPage() {
                             {stories.map((story) => (
                                 <div key={story._id} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
                                     <Link to={`/stories/${story._id}`}>
-                                        <SearchCard title={story.title} description={story.content.slice(0, 100) + "..."} />
+                                        <SearchCard story={story} />
                                     </Link>
                                 </div>
                             ))}
@@ -64,7 +64,7 @@ export default function SearchPage() {
                             {users.map((user) => (
                                 <div key={user._id} className="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">
                                     <Link to={`/userprofile/${user._id}`}>
-                                        <UserCard name={user.name} email={user.email.slice(0, 25)} />
+                                        <UserCard name={user.username} email={user.email.slice(0, 25)} />
                                     </Link>
                                 </div>
                             ))}
