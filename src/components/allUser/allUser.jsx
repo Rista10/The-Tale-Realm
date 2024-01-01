@@ -2,10 +2,8 @@ import { useEffect, useState } from 'react'
 // import Slider from 'react-slick';
 import Skeleton from './skeleton/skeleton';
 import axios from '../../api/axios';
-import ProfileCard from '../profileCard/profileCard';
 import './allUser.css'
 import { Slider } from '../slider/slider';
-import { all } from 'axios';
 
 
 const AllUser = () => {

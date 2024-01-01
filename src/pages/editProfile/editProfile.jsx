@@ -65,6 +65,7 @@ function EditProfile() {
     };
 
     const handleProfilePictureUpload = async () => {
+        const token = localStorage.getItem('token');
         if (selectedFile) {
             const formData = new FormData();
             formData.append('profilePicture', selectedFile);
@@ -73,6 +74,7 @@ function EditProfile() {
                 await axios.put(`/users/profile/${id}/upload`, formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
+                        'Authorization': 'Bearer ' + token
                     },
                 });
                 // If you want to refresh the page or navigate away after successful upload
@@ -186,7 +188,7 @@ function EditProfile() {
 
                     {/* Submit Button */}
                     <div className="form-group">
-                        <button type="submit" className="btn btn-primary">
+                        <button type="submit" className="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                             Save Changes
                         </button>
                         <button type="button" className="btn btn-default" onClick={() => navigate(-1)}>

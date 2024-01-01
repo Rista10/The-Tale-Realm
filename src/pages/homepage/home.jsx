@@ -1,16 +1,10 @@
 import { useState, useRef } from 'react';
 import NavBar from '../../components/navBar/navBar';
 import Footer from '../../components/footer/footer';
-import Background from '../../assets/images/homeBackground.png'
 import './style.module.css'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import SignUpModal from '../../components/authentication/signUpModal';
-import { FaBook, FaPen, FaUser } from "react-icons/fa";
 import { useAuthContext } from '../../hooks/useAuthContext';
-import { motion } from 'framer-motion'
 import AllUser from '../../components/allUser/allUser';
-import { Container } from 'react-bootstrap';
-import { Slider } from '../../components/slider/slider';
 import book from '../../assets/book.png';
 import FirstPage from '../parallexPages/firstPage';
 import Features from '../../assets/Frame.png'
@@ -19,8 +13,8 @@ import Shashi from '../../assets/Team/shashi.png'
 import Rista from '../../assets/Team/rista.png'
 import Sasa from '../../assets/Team/sasa.png'
 import Butterfly from '../../assets/butterfly.png'
-import UserProfileCardSkeleton from '../../components/userProfileCard/userProfileCardSkeleton';
 import FollowedUserStoryCard from '../../components/followedUserFeed/followedUserFeed';
+import StarField from '../../components/cursor/NewCursor';
 
 const url = (name, wrap = false) =>
   `${wrap ? 'url(' : ''}https://awv3node-homepage.surge.sh/build/assets/${name}.svg${wrap ? ')' : ''}`
@@ -36,12 +30,15 @@ const HomePage = () => {
   };
   const parallax = useRef(null)
   return (
-    <div className='homepage'>
+    <div className='homepage' >
+
+
       <NavBar />
       {!token && (
-        <div >
-          <div style={{ width: '100%', height: '100%', }} className='bg-sky[950]'>
-            <Parallax ref={parallax} pages={3}>
+        <>
+          <div style={{ width: '100%', height: '100%' }}>
+            <Parallax ref={parallax} pages={3} style={{ backgroundColor: '#082f49' }}>
+            <StarField/>
               <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#082f49' }} />
               <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#082f49' }} />
 
@@ -56,6 +53,7 @@ const HomePage = () => {
               />
 
               <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
+
                 <img src={book} style={{ width: '35%', marginLeft: '70%', zIndex: "30" }} />
               </ParallaxLayer>
               <ParallaxLayer offset={.5} speed={-0.4} style={{ pointerEvents: 'none' }}>
@@ -198,7 +196,7 @@ const HomePage = () => {
               </ParallaxLayer>
             </Parallax>
           </div>
-        </div>
+        </>
       )}
 
       {token && (
@@ -208,7 +206,7 @@ const HomePage = () => {
       <div className='container'>
             <section className='mainContent'>
               <h2>Hi Rista</h2>
-              <FollowedUserStoryCard title={"Hello World"} description={"Hello world jdfkghj jhfjhfjdldglkerbriu 5r hrllo risyaidshsjfhjfbhfndjf Hello world jdfkghj jhfjhfjdldglkerbriu 5r hrllo risyaidshsjfhjfbhfndjf Hello world jdfkghj jhfjhfjdldglkerbriu 5r hrllo risyaidshsjfhjfbhfndjf Hello world jdfkghj jhfjhfjdldglkerbriu 5r hrlloHello world jdfkghj jhfjhfjdldglkerbriu 5r hrllo risyaidshsjfhjfbhfndjf risyaidshsjfhjfbhfndjf"} />
+              <FollowedUserStoryCard title={"Hello World"} description={"Hello world "} />
             </section>
             <section className='sideContent'>
               <AllUser />

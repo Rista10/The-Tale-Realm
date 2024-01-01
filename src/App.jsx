@@ -8,8 +8,6 @@ import StoryView from './pages/storyView/storyView';
 import EditProfile from './pages/editProfile/editProfile';
 import Profile from './pages/profilePageView/profile';
 import SearchPage from './pages/searchPage/searchPage';
-import Footer from './components/footer/footer';
-import StarField from './components/cursor/NewCursor.jsx';
 
 
 
@@ -17,7 +15,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <StarField />
         <Routes>
           <Route path='/' exact element={<HomePage />} />
           <Route path='/discover' element={<Discover />} />

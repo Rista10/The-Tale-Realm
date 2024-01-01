@@ -132,7 +132,7 @@ const appendElement = element => document.body.appendChild(element),
     
     if(hasMovedFarEnough || hasBeenLongEnough) {
       createStar(mousePosition);
-      
+
       updateLastStar(mousePosition);
     }
     
@@ -153,17 +153,19 @@ const appendElement = element => document.body.appendChild(element),
 
   return <>
    {stars.map(star => (
+    console.log(star),
       <FaStar
         key={star.id}
         style={{
           position: 'absolute',
-          left: px(star.position.x),
-          top: px(star.position.y),
+          left: `${star.position.x}%`,
+          top: `${star.position.y}%`,
           fontSize: star.size,
           color: star.color,
           textShadow: star.shadow,
           animationName: star.animation,
           animationDuration: ms(config.starAnimationDuration),
+          zIndex:999
         }}
       />
     ))}
