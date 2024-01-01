@@ -1,6 +1,7 @@
 import './createStory.css';
 import { useState, useRef } from 'react';
 import axios from '../../api/axios';
+import background from '../../assets/images/homeBackground.png'
 
 
 const CreateStory = () => {
@@ -64,7 +65,10 @@ const removeTag = (tagToRemove) => {
   };
 
   return (
-    <div className="border text-card-htmlForeground max-w-4xl mx-auto my-8 p-8 bg-white shadow-lg rounded-lg" data-v0-t="card">
+ <>
+ <img src={background} alt="" className='background-image'/>
+    <div className="content border text-card-htmlForeground max-w-4xl mx-auto my-8 p-8 bg-white shadow-lg rounded-lg" data-v0-t="card">
+      
       <div className="flex flex-col space-y-1.5 p-6">
         <h3 className="tracking-tight text-2xl font-bold text-gray-800">Add a Story</h3>
         <p className="text-sm text-gray-600">Share your imagination with the world.</p>
@@ -213,6 +217,7 @@ const removeTag = (tagToRemove) => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

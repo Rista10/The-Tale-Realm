@@ -23,8 +23,16 @@ const Story = ({ title, thumbnailSrc, content, updatedDate, genre }) => (
         </div>
       </div>
     </div>
-    <div className="p-6">
-    <span className="bg-green-100 text-green-300 text-xs font-medium me-2 px-2.5 py-0.5 rounded-xl dark:bg-green-300 dark:text-green-900">New</span>
+    <div className="p-6 flex justify-between">
+    <div>
+    <span className="bg-green-100 text-green-300 text-xs font-medium me-2 px-2.5 py-0.5 rounded-xl dark:bg-green-400 dark:text-green-900">Thriller</span>
+    <span className="bg-green-100 text-green-300 text-xs font-medium me-2 px-2.5 py-0.5 rounded-xl dark:bg-purple-400 dark:text-purple-900">Magic</span>
+    <span className="bg-green-100 text-green-300 text-xs font-medium me-2 px-2.5 py-0.5 rounded-xl dark:bg-blue-400 dark:text-blue-900">Mystery</span>
+    </div>
+    <div className='flex '>
+    <p className="text-black py-2 px-3 font-medium text-sm">10 Likes</p>
+                <p className="text-black py-2 px-3 font-medium text-sm">5 Comments</p>
+    </div>
     </div>
   </div>
 );
@@ -151,7 +159,7 @@ const ProfilePage = () => {
                   <img
                     alt="Profile avatar"
                     className="rounded-full h-32 w-32 mb-4"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2fU6VWMdDDAYhNv6NQiHuGeXP3KKtPwVHew&usqp=CAU"
+                    src="https://images.unsplash.com/photo-1514161955277-4ea47eef2ff9?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwxNDgzOTgxfHxlbnwwfHx8fHw%3D"
                     style={{ aspectRatio: '128 / 128', objectFit: 'cover' }}
                   />
                   <h2 className="text-xl font-semibold">

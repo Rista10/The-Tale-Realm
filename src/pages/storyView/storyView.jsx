@@ -51,7 +51,7 @@ const StoryView = () => {
                             </div>
                             <div className="read-content-head-text">
                                 <h2>{storyDetail.title}</h2>
-                                <p>Rista Shrestha</p>
+                                <p>Shashinoor Ghimire</p>
                                 <p>2023-09-10</p>
                             </div>
                         </div>
